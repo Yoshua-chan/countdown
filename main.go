@@ -85,7 +85,7 @@ loop:
 	for {
 		select {
 		case ev := <-queues:
-			if ev.Type == termbox.EventKey && (ev.Key == termbox.KeyEsc || ev.Key == termbox.KeyCtrlC) {
+			if ev.Type == termbox.EventKey && (ev.Key == termbox.KeyEsc || ev.Key == termbox.KeyCtrlC || ev.Ch == 'q') {
 				exitCode = 1
 				break loop
 			}
